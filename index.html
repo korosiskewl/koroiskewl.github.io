@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>koros | bio</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .card {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .card h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #70f8ff;
+    }
+    .card p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+    .footer {
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+    .glow {
+      text-shadow: 0 0 5px #70f8ff, 0 0 15px #70f8ff, 0 0 30px #70f8ff;
+    }
+    @media (max-width: 500px) {
+      .card h1 {
+        font-size: 2rem;
+      }
+      .card p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 class="glow">koros</h1>
+    <p id="about">Hey, I’m koros. I do cool stuff with code, chill in VRChat, and maybe commit a few keyboard crimes here and there. This is my little corner of the web. Stay rad 😎</p>
+    <div class="footer">© 2025 koros — hosted on GitHub Pages</div>
+  </div>
 
+  <script>
+    // Optional: Easily customize about text
+    const aboutText = `Hey, I’m koros. I do cool stuff with code, chill in VRChat, and maybe commit a few keyboard crimes here and there. This is my little corner of the web. Stay rad 😎`;
+    document.getElementById("about").innerText = aboutText;
+  </script>
+</body>
+</html>
