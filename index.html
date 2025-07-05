@@ -1,89 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clean Music + Lyrics Player</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>koros | bio</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Inter', sans-serif;
-      background: #0f0f0f;
+      font-family: 'JetBrains Mono', monospace;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       color: #fff;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 40px;
+      overflow: hidden;
     }
-    input, button {
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-    #searchBox {
-      width: 300px;
-      margin-bottom: 10px;
-    }
-    #lyricsDisplay {
-      margin-top: 30px;
-      width: 100%;
-      max-width: 600px;
+    .card {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+      max-width: 500px;
+      width: 90%;
       text-align: center;
-      font-size: 18px;
-      line-height: 2em;
+      backdrop-filter: blur(10px);
     }
-    #player {
-      margin-top: 20px;
-      width: 100%;
+    .card h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #70f8ff;
     }
-    .highlight {
-      color: #00ffe1;
-      font-weight: bold;
+    .card p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+    .footer {
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+    .glow {
+      text-shadow: 0 0 5px #70f8ff, 0 0 15px #70f8ff, 0 0 30px #70f8ff;
+    }
+    @media (max-width: 500px) {
+      .card h1 {
+        font-size: 2rem;
+      }
+      .card p {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h2>🎧 Music + Lyrics</h2>
-  <input type="text" id="searchBox" placeholder="Search for a song...">
-  <button onclick="searchSong()">Search</button>
-  <audio id="player" controls></audio>
-  <div id="lyricsDisplay"></div>
-  <script>
-    async function searchSong() {
-      let query = document.getElementById('searchBox').value.trim()
-      let res = await fetch(`https://api.audius.co/v1/tracks/search?app_name=cleanapp&q=${encodeURIComponent(query)}`)
-      let json = await res.json()
-      if (!json.data || json.data.length === 0) return alert("No song found.")
-      let track = json.data[0]
-      let streamURL = `${track.stream_url}?app_name=cleanapp`
-      let audio = document.getElementById('player')
-      audio.src = streamURL
-      fetchLyrics(track.title + ' ' + track.user.name)
-    }
+  <div class="card">
+    <h1 class="glow">koros</h1>
+    <p id="about">Hey, I’m koros. I do cool stuff with code, chill in VRChat, and maybe commit a few keyboard crimes here and there. This is my little corner of the web. Stay rad 😎</p>
+    <div class="footer">© 2025 koros — hosted on GitHub Pages</div>
+  </div>
 
-    async function fetchLyrics(query) {
-      let lyricsBox = document.getElementById('lyricsDisplay')
-      lyricsBox.innerHTML = 'Loading lyrics...'
-      let res = await fetch(`https://api.lyrics.ovh/v1/${encodeURIComponent(query.split(' ').slice(-1)[0])}/${encodeURIComponent(query.split(' ').slice(0, -1).join(' '))}`)
-      let json = await res.json()
-      if (!json.lyrics) return lyricsBox.innerHTML = 'No lyrics found.'
-      let lines = json.lyrics.split('\n').filter(l => l.trim().length > 0)
-      lyricsBox.innerHTML = ''
-      let spanList = []
-      lines.forEach((line, i) => {
-        let span = document.createElement('div')
-        span.textContent = line
-        lyricsBox.appendChild(span)
-        spanList.push(span)
-      })
-      let audio = document.getElementById('player')
-      audio.ontimeupdate = () => {
-        let index = Math.floor((audio.currentTime / audio.duration) * spanList.length)
-        spanList.forEach((s, i) => s.className = (i === index) ? 'highlight' : '')
-      }
-    }
+  <script>
+    // Optional: Easily customize about text
+    const aboutText = `Hey, I’m koros. I do cool stuff with code, chill in VRChat, and maybe commit a few keyboard crimes here and there. This is my little corner of the web. Stay rad 😎`;
+    document.getElementById("about").innerText = aboutText;
   </script>
 </body>
 </html>
