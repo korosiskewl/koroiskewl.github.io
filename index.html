@@ -1,1 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cheap RAM Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #0f0f0f;
+      color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      padding: 40px 20px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin: 0;
+      color: #00ffcc;
+      letter-spacing: 2px;
+    }
+
+    .subtext {
+      color: #aaa;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    .ram-list {
+      width: 90%;
+      max-width: 800px;
+      margin: 30px auto;
+      background: #1a1a1a;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+      padding: 20px;
+    }
+
+    .ram-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .ram-item:last-child {
+      border-bottom: none;
+    }
+
+    .ram-name {
+      color: #ffffff;
+    }
+
+    .ram-price {
+      color: #00ffcc;
+    }
+
+    .buy-button {
+      display: inline-block;
+      margin: 30px auto;
+      padding: 14px 30px;
+      background: #00ffcc;
+      color: #000;
+      border: none;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    .buy-button:hover {
+      background: #00e6b8;
+    }
+
+    .crypto-note {
+      margin-top: 20px;
+      color: #888;
+      text-align: center;
+    }
+
+    #checkout {
+      width: 90%;
+      max-width: 700px;
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 30px;
+      margin: 60px auto;
+      box-shadow: 0 0 15px rgba(0, 255, 204, 0.15);
+    }
+
+    #checkout h2 {
+      color: #00ffcc;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    #checkout ol {
+      line-height: 1.7;
+      padding-left: 20px;
+    }
+
+    .join-btn {
+      display: inline-block;
+      margin: 25px auto 0;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #000;
+      background-color: #00ffcc;
+      border: none;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      text-align: center;
+    }
+
+    .join-btn:hover {
+      background-color: #00e6b8;
+    }
+
+    footer {
+      margin: 60px auto 20px;
+      color: #555;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💻 Cheap RAM Vault</h1>
+    <div class="subtext">Insanely fast. Stupidly cheap. Crypto only.</div>
+  </header>
+
+  <div class="ram-list">
+    <div class="ram-item">
+      <div class="ram-name">DDR5 ULTRA-8GB-3600MHz (White HeatShield)</div>
+      <div class="ram-price">$18.74</div>
+    </div>
+    <div class="ram-item">
+      <div class="ram-name">DDR5 BLAZE-8GB-3200MHz (Arctic Edition)</div>
+      <div class="ram-price">$12.59</div>
+    </div>
+    <div class="ram-item">
+      <div class="ram-name">DDR5 SHADOW-8GB-3200MHz (Obsidian Black)</div>
+      <div class="ram-price">$28.10</div>
+    </div>
+    <div class="ram-item">
+      <div class="ram-name">DDR5 STORM-8GB-3600MHz (Midnight)</div>
+      <div class="ram-price">$16.95</div>
+    </div>
+    <div class="ram-item">
+      <div class="ram-name">DDR5 TITAN-16GB-3200MHz (Whiteout Series)</div>
+      <div class="ram-price">$35.22</div>
+    </div>
+    <div class="ram-item">
+      <div class="ram-name">DDR5 ROGUE-16GB-3200MHz (Stealth Black)</div>
+      <div class="ram-price">$41.89</div>
+    </div>
+    <div class="ram-item">
+      <div class="ram-name">DDR5 X-FURY-16GB-3600MHz (White Apex)</div>
+      <div class="ram-price">$22.73</div>
+    </div>
+    <div class="ram-item">
+      <div class="ram-name">DDR5 NIGHTFIRE-16GB-3600MHz (Black Flame)</div>
+      <div class="ram-price">$47.60</div>
+    </div>
+  </div>
+
+  <a href="#checkout" class="buy-button">Buy with Litecoin</a>
+  <div class="crypto-note">🔐 We only accept Litecoin (LTC). DM for address. No refunds. Trustless & fast.</div>
+
+  <div id="checkout">
+    <h2>🛒 How to Order</h2>
+    <ol>
+      <li>Click the <strong>Join Server</strong> button below to access the Discord.</li>
+      <li>DM <strong>koros</strong> with the model name you want to buy.</li>
+      <li>Wait for koros to reply with the <strong>Litecoin (LTC) address</strong>.</li>
+      <li>While waiting, please send your <strong>P.O. box</strong> or <strong>home shipping address</strong>.</li>
+    </ol>
+    <div style="text-align: center;">
+      <a class="join-btn" href="https://discord.gg/YOUR_INVITE_LINK" target="_blank">Join Server</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Cheap RAM Vault — Powered by Litecoin ⚡
+  </footer>
+</body>
+</html>
